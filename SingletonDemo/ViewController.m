@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "testSingleton.h"
 @interface ViewController ()
 
 @end
@@ -17,8 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    testSingleton * objct1 =  [testSingleton sharedInstance];
+    NSLog(@"%@",objct1);
+    testSingleton *objc2 = [[testSingleton alloc] init];
+    NSLog(@"%@",objc2);
+    testSingleton *objc3 = [testSingleton new];
+    NSLog(@"%@",objc3);
+    
+    NSLog(@"description__%@",[testSingleton sharedInstance].description);
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+  
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
